@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/22 21:42:40 by marvin            #+#    #+#             */
+/*   Updated: 2022/08/22 21:42:40 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -26,11 +38,10 @@ char    *ft_strchr(const char *s, int c);
 char    *ft_strrchr(const char *s, int c);
 char    *ft_strstr(const char *haystack, const char *needle);
 char    *ft_strndup(const char *s, size_t n);
+char    ft_itoa(int n);
 void    *ft_memset(void *s, int c, size_t len);
 void    *ft_bzero(void *s, size_t n);
 void    *ft_memchr(const void *s, int c, size_t n);
 void    *ft_memmove(void *dst, const void *src, size_t len);
-
-//hello
 
 #endif
