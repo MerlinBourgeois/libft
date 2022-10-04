@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: mebourge <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/22 21:44:40 by marvin            #+#    #+#              #
-#    Updated: 2022/08/22 21:44:40 by marvin           ###   ########.fr        #
+#    Created: 2022/10/03 13:35:20 by mebourge          #+#    #+#              #
+#    Updated: 2022/10/03 13:40:13 by mebourge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 COMPILE = gcc $(CFLAGS) -c
 
-LIB = ar rc $(NAME)
-
-RANLIB = ranlib $(NAME)
+LIB = ar rcs $(NAME)
 
 REMOVE = rm -f
 
@@ -31,8 +29,6 @@ all: $(NAME)
 $(NAME):
 	@$(COMPILE) $(SRC)
 	@$(LIB) $(OBJ)
-	@$(RANLIB)
-
 clean:
 	@$(REMOVE) $(OBJ)
 
@@ -41,7 +37,4 @@ fclean: clean
 
 re: fclean all
 
-so:
-	gcc -fPIC -c $(SRC)
-	gcc -shared -Wl,-soname,libft.so -o libft.so *.o
 .PHONY: all clean fclean re

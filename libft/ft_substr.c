@@ -1,52 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 13:33:50 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/03 13:33:52 by mebourge         ###   ########.fr       */
+/*   Created: 2022/10/03 12:55:14 by mebourge          #+#    #+#             */
+/*   Updated: 2022/10/04 12:19:56 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*res;
-	int		i;
-	int		j;
+	unsigned int	i;
+	char			*res;
 
-	res = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!res)
+	if ((start > len) || (start == len))
+	{
 		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		res[i] = s1[i];
-		i++;
 	}
-	j = i;
 	i = 0;
-	while (s2[i] != '\0')
+	res = (char *) malloc((len - start + 1) * sizeof(char));
+	while(s[i] && start != len)
 	{
-		res[j] = s2[i];
+		res[i] = s[start];
 		i++;
-		j++;
+		start++;
 	}
-	res[j] = '\0';
-	return (res);
+	res[i] = '\0';
+	return	(res);
 }
 
 /*
 
 int main(void)
 {
-	char *s1 = "";
-	char *s2 = "";
-	printf("%s", ft_strjoin(s1, s2), "\n");
+	printf("%s", ft_substr("bonjour", 2160, 2360));
 }
 
 */
