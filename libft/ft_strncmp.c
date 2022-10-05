@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 13:33:57 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/04 13:45:09 by mebourge         ###   ########.fr       */
+/*   Created: 2022/10/05 12:01:18 by mebourge          #+#    #+#             */
+/*   Updated: 2022/10/05 12:02:16 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{	
+	while (n && *s1 && *s1 == *s2)
 	{
-		i++;
+		s1++;
+		s2++;
+		n--;
 	}
-	return (i);
+	if (n)
+		return (*s1 - *s2);
+	else
+		return (0);
 }
 
 /*
+#include <string.h>
+int	main()
+{
+	char ptr1[] = "12345";
+	char ptr2[] = "12345678910";
 
-#include <stdio.h>
-
- int main(void)
- {
-	printf("%zu", ft_strlen("hello"));
- }
-
- */
+	printf("%d\n", ft_strncmp(ptr1, ptr2, 12));
+	printf("%d\n", strncmp(ptr1, ptr2, 10));
+}
+*/

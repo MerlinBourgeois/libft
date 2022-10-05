@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 13:33:57 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/04 13:45:09 by mebourge         ###   ########.fr       */
+/*   Created: 2022/10/05 09:52:50 by mebourge          #+#    #+#             */
+/*   Updated: 2022/10/05 11:35:35 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
+	void	*res;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	res = malloc(count * size);
+	if (!res)
+		return (NULL);
+	ft_bzero(res, count);
+	return (res);
 }
 
 /*
 
-#include <stdio.h>
+int main(void)
+{
+	printf("%s", ft_calloc(10000, 1000000));
+}
 
- int main(void)
- {
-	printf("%zu", ft_strlen("hello"));
- }
-
- */
+*/

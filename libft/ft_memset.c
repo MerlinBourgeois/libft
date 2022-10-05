@@ -6,43 +6,37 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:32:59 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/03 13:33:01 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:32:36 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*str;
 
-	str = (unsigned char *)s;
+	str = (unsigned char *)b;
 	while (len != 0)
+	{
 		*str++ = (unsigned char)c;
-	return (s);
+		len--;
+	}
+	return (b);
 }
 
 /*
 
-int main() {
+int main()
+{
+	char str[80] = "This is string.h library function";
 
-    int array [] = { 54, 85, 20, 63, 21 };
-    size_t size = sizeof( int ) * 5;
-    int length;
+	puts(str);
 
-    for( length=0; length<5; length++) {
-        printf( "%d ", array[ length ] );
-    }
-    printf( "\n" );
+	ft_memset(str, 'y',70);
+	puts(str);
 
-    memset( array, 4, size );
-
-    for( length=0; length<5; length++) {
-        printf( "%d ", array[ length ] );
-    }
-    printf( "\n" );
-    
-    return 0;
+	return(0);
 }
 
 */

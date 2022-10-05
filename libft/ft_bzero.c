@@ -6,7 +6,7 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:30:41 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/03 13:30:48 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:35:03 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,18 @@ void	*ft_bzero(void *s, size_t n)
 
 	str = (unsigned char *)s;
 	while (n != 0)
-		*str++ = (unsigned char) '\0';
+	{
+		*str++ = '\0';
+		n--;
+	}
+	return (str);
 }
+
+/*
+
+int main(void)
+{
+	printf("%s", ft_bzero("hello", 5));
+}
+
+*/
