@@ -6,7 +6,7 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:30:05 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/04 15:04:26 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/05 16:31:49 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	str = (unsigned char *)s;
 	while (n != 0)
+	{
 		if (*str++ == (unsigned char)c)
 			return (str - 1);
+		n--;
+	}
 	return (NULL);
 }
 
@@ -27,8 +30,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 int main(void)
 {
-    char *str = "coucoupioik";
-    printf("%s", ft_memchr(str, 'p', 2147483648));
+    char *str = "walalepmerlin";
+    printf("%s", ft_memchr(str, 'p', 21));
 }
 
 */

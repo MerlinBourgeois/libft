@@ -6,7 +6,7 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:20:31 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/04 15:51:21 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/05 16:09:57 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ char *ft_strtrim(char const *s1, char const *set)
 	return (res);
 }
 
+/*
+
 int main(void)
 {
 	printf("%s", ft_strtrim("nbonjour1ouiouibonjour", "bnj"));
 }
+
+*/

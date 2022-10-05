@@ -6,11 +6,13 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:34:04 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/03 13:34:07 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:45:51 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
 
 char	*ft_strndup(const char *s, size_t n)
 {
@@ -29,7 +31,7 @@ char	*ft_strndup(const char *s, size_t n)
 	return (dst);
 }
 
-/*
+
 
 int main(void)
 {

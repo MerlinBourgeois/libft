@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 13:34:27 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/05 16:09:30 by mebourge         ###   ########.fr       */
+/*   Created: 2022/10/05 19:12:03 by mebourge          #+#    #+#             */
+/*   Updated: 2022/10/05 19:56:24 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char * ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	size_t	i;
 	int	j;
 
 	i = 0;
-	j = 0;
 	if (!*needle)
 		return ((char *)haystack);
-	while (haystack[i] != '\0')
+	if (len == 0)
+		return (NULL);
+	if (ft_strlen(needle) > ft_strlen(haystack))
+		return (NULL);
+	while (i != len && haystack[i] != '\0')
 	{
 		if (haystack[i] == needle[0])
 		{
-			while (needle[j] != '\0' && haystack[i + j] == needle[j])
+			j = 0;
+			while (needle[j] != '\0' && haystack[i + j] == needle[j] && i + j != len)
 			{
 				if (needle[j + 1] == '\0')
 					return ((char *)&haystack[i]);
@@ -41,7 +45,8 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 int main(void)
 {
-    printf("%s", ft_strstr("my name is slimshady", "l"));
+    printf("%s\n", ft_strnstr("C'EST VRAIMENT NUL", "VRAI", 0));
+	printf("%s\n", strnstr("C'EST VRAIMENT NUL", "VRAI", 0));
 }
 
 */
