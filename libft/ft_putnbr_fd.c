@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 13:30:41 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/10 15:31:14 by mebourge         ###   ########.fr       */
+/*   Created: 2022/10/06 16:51:07 by mebourge          #+#    #+#             */
+/*   Updated: 2022/10/10 15:38:50 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	i;
-	char			*str;
-
-	str = (char *)s;
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
 	{
-		*(str + i) = 0;
-		i++;
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		ft_putnbr_fd(147483648, fd);
+		return ;
 	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd((n + 48), fd);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }
-
-/*
-
-int main(void)
-{
-	printf("%s", ft_bzero("", 5));
-}
-
-*/

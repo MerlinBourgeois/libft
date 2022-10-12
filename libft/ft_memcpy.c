@@ -6,15 +6,15 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 13:52:43 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/05 14:33:21 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/10 15:33:07 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*dstcast;
+	char		*dstcast;
 	const char	*srccast;
 
 	if (dst == src || n == 0)

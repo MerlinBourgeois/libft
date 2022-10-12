@@ -6,7 +6,7 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:53:10 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/05 11:39:42 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:54:22 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = 0;
 	ac = get_ac(s, c);

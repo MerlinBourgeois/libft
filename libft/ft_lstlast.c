@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 13:30:41 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/10 15:31:14 by mebourge         ###   ########.fr       */
+/*   Created: 2022/10/11 16:54:32 by mebourge          #+#    #+#             */
+/*   Updated: 2022/10/11 19:06:39 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	unsigned int	i;
-	char			*str;
-
-	str = (char *)s;
-	i = 0;
-	while (i < n)
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 	{
-		*(str + i) = 0;
-		i++;
+		lst = lst->next;
 	}
+	return (lst);
 }
-
-/*
-
-int main(void)
-{
-	printf("%s", ft_bzero("", 5));
-}
-
-*/

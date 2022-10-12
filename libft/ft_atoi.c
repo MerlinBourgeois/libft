@@ -6,43 +6,46 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:30:19 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/05 16:41:11 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/11 08:36:43 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(int c)
-{
-	return (c == '\f' || c == '\n' || c == '\r' \
-	|| c == '\t' || c == '\v' || c == ' ');
-}
-
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	sign;
+	long	i;
+	long	nbr;
+	int		isneg;
 
-	num = 0;
-	sign = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
-		num = num * 10 + *str++ - '0';
-	return (num * sign);
+	i = 0;
+	nbr = 0;
+	isneg = 0;
+	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		isneg = (str[i] == '-');
+		i++;
+	}
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
+	if (isneg == 1 && (-nbr) > 2147483648)
+		return (0);
+	if (isneg == 0 && (-nbr) > 2147483647)
+		return (-1);
+	if (isneg == 1)
+		return (-nbr);
+	return (nbr);
 }
 
-/*
+// #include <stdio.h>
 
-#include <stdio.h>
-
-int main(void)
-{
-    printf("%d" ,ft_atoi("-43ssgr2gdsg"));
-}
-
-*/
+// int main(int argc, char **argv)
+// {
+// 	(void)argc;
+//     printf("%d" ,ft_atoi(*(++argv)));
+// 	printf("%s", "\n");
+// 	printf("%d" ,atoi(*argv));
+// }

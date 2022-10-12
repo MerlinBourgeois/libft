@@ -6,44 +6,47 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:50:22 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/05 17:50:57 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:36:54 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize)
-{
-		size_t		i;
-	int			j;
-	size_t		dst_len;
-	size_t		src_len;
+#include "libft.h"
 
-	if (dstsize == 0)
-		return (0);
-	i = ft_strlen(dst);
-	j = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (dstsize < dst_len + 1)
-		return (src_len + dstsize);
-	if (dstsize > dst_len + 1)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	unsigned int	c;
+	unsigned int	d;
+
+	if (!dst && dstsize == 0)
+		return (ft_strlen(src));
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + ft_strlen(src));
+	c = ft_strlen(dst);
+	d = 0;
+	while (src[d] != '\0' && c + 1 < dstsize)
 	{
-		while (i < dstsize - 1)
-			*(dst + i++) = *(src + j++);
-		*(dst + i) = '\0';
+		dst[c] = src[d];
+		c++;
+		d++;
 	}
-	return (dst_len + src_len);
+	dst[c] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[d]));
 }
 
 /*
 
 int main(void)
 {
-	char dst[100] = "hello";
-	char src[100] = "helloccdcd";
-	printf("%zu", ft_strlcat(0, 0, 7));
-	//printf("%zu", strlcat(0, 0, 7));
+	char *dst= "beepboop";
+	char *src = "testtestestestestes";
+	char *dst1= "beepboop";
+	char *src1 = "testtestestestestes";
+	printf("%zu\n", ft_strlcat(dst, src, 0));
+	printf("%zu\n", strlcat(dst1, src1, 0));
+	printf("%s\n",dst);
+	printf("%s",dst1);
 }
 
 */

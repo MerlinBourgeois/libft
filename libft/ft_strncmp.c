@@ -6,17 +6,17 @@
 /*   By: mebourge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:01:18 by mebourge          #+#    #+#             */
-/*   Updated: 2022/10/05 15:27:11 by mebourge         ###   ########.fr       */
+/*   Updated: 2022/10/11 09:49:42 by mebourge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {	
-	unsigned char *s1cast;
-	unsigned char *s2cast;
-	
+	unsigned char	*s1cast;
+	unsigned char	*s2cast;
+
 	s1cast = (unsigned char *)s1;
 	s2cast = (unsigned char *)s2;
 	while (n && *s1cast && *s1cast == *s2cast)
